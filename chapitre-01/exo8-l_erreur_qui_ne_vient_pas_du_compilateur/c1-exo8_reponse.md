@@ -1,0 +1,3 @@
+PS C:\Users\Lenovo> clang++  -c  c1-exo8_main.cpp, apres execution du programme avec ce code ,  c1-exo8_main.o avec pour chemin d'acces :C:\Users\Lenovo\c1-exo8_main.o sait creer. par contre apres execution avec,clang++   c1-exo8_main.cpp -o programme le message d'erreur est apparue: C:/msys64/ucrt64/bin/ld: C:/Users/Lenovo/AppData/Local/Temp/c1-exo8_main-a94664.o:c1-exo8_main.cpp:(.text+0x17): undefined reference to `calculer()'
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+l'explication ici est que la compilation réussit  avec la premiere commande car le compilateur accepte une fonction déclarée mais non définie. et elle echoue a second commande car l'editeur de lien ne trouve pas la fonction definit.
