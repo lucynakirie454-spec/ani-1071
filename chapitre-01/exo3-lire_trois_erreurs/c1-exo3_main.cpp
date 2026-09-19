@@ -1,8 +1,8 @@
-
+#include <cstdio>
  int main() 
  {
-printf("mengue kerine")
-Printf(" yaounde");
+printf("mengue kerine");
+printf(" yaounde");
 
  return 0;
  }
