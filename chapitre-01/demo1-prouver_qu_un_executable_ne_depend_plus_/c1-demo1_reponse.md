@@ -1,13 +1,15 @@
 resultat de la compilation du programme 
 ```
-PS C:\Users\Lenovo> clang++ c1-demo1_test.cpp -o test
+PS C:\Users\Lenovo> clang++ c1-demo1_test.cpp -o test     
 PS C:\Users\Lenovo> ./test
+bonjour
 PS C:\Users\Lenovo> 
 ```
  apres supression de .cpp le programme s'execute toujours et voici le rendu
  ```
- PS C:\Users\Lenovo> rm c1-demo1_test.cpp
+PS C:\Users\Lenovo> rm c1-demo1_test.cpp
 PS C:\Users\Lenovo> ./test
+bonjour
 PS C:\Users\Lenovo> 
 ```
 l'explication en 5 ligne est la suivante:
