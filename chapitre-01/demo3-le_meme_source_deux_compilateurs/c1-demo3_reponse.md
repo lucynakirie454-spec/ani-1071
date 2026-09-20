@@ -34,4 +34,4 @@ tant dis que pour dessin sa taille est de :
 73661 dessin.exe 
   ```
   donc les deux on meme taille 
-  conclusion le langage c++ garantie que le resultat demander dan le rpogramme s'affiche et ceux peut importe le compilateur utiliser, par contre ce qu'il ne garanti pas c'est la maniere dont le compilateur procede pour afficher le meme resultar.
+  conclusion le langage c++ garantie que le resultat demander dan le programme s'affiche et ceux peut importe le compilateur utiliser, par contre ce qu'il ne garanti pas c'est la maniere dont le compilateur procede pour afficher le meme resultat.
