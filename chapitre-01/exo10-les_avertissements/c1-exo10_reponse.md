@@ -1,4 +1,4 @@
-la premiere commande taper me sort cette avertissement
+la premiere commande taper me donne 
 ```
 PS C:\Users\Lenovo> clang++ -Wall  c1-exo10_main.cpp -o nom       
 c1-exo10_main.cpp:3:10: warning: unused variable 'a' [-Wunused-variable]
