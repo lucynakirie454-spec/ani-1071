@@ -1,8 +1,9 @@
-#include <cstdio.h>
+#include <stdio.h>
 
 int main(void) {
     int x;
-    scanf("%d", &x);
-    printf("%d\n", 2 * x);
+    if (scanf("%d", &x) == 1) 
+        printf("%d\n", 2 * x);
+    
     return 0;
 }
