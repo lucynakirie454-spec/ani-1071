@@ -8,16 +8,6 @@ pairs
 nul
 n, divisible par 3
 ```
-resultat du test avec :  $-9$
-```
-PS C:\Users\Lenovo> clang++ c2-exo5.cpp -o main
-PS C:\Users\Lenovo> ./main                     
-Entrez un entier 
-:  $-9$
-impair
-positif
-non divisible par 3 
-```
 resultat du test avec :12
 ```
 PS C:\Users\Lenovo> clang++ c2-exo5.cpp -o main
