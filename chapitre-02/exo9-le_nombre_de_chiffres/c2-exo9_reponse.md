@@ -39,3 +39,4 @@ PS C:\Users\Lenovo> ./main
 0
 le nombre de chiffre est: 1
 ```
+mon programme pour 0 me donne 1 chiffre.
