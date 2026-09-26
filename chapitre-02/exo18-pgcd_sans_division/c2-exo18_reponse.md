@@ -18,7 +18,8 @@ entrer deux nombre :
 PGCD : 1
 ```
 resultat de du second code soit l'algorithme d'euclide:
-  $ cas de(1071, 462): ici le nombre de tour est de 
+
+  $ cas de(1071, 462): ici le nombre de tour est de  7
   ```
   PS C:\Users\Lenovo> clang++ c2-exo18_main2.cpp -o main2
 PS C:\Users\Lenovo> ./main2                            
