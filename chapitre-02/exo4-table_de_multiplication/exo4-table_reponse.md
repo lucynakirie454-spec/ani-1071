@@ -15,3 +15,4 @@ PS C:\Users\Lenovo> ./main
  
 PS C:\Users\Lenovo> 
 ```
+%4d sert ici a bien aligner les nombre en creant des espaces entre eux.
