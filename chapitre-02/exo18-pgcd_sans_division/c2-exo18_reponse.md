@@ -1,32 +1,36 @@
 premier resultat avec la premiere version de code soit la soustraction:
-  $ cas de (1071, 462): ici le nombre de tour est de 7 tours 
+  $ cas de (1071, 462): ici le nombre de tour est de 11 tours 
   ```
-  PS C:\Users\Lenovo> clang++ c2-exo18_main.cpp -o main
-PS C:\Users\Lenovo> ./main                           
+  PS C:\Users\Lenovo> clang++ c2-exo18_main.cpp -o main 
+PS C:\Users\Lenovo> ./main                            
 entrer deux nombre : 
-1071
+1071     
 462
 PGCD : 21
+tours : 11
+PS C:\Users\Lenovo> 
 ```
- cas de (1000000,1): ici le nombre de tour est de 1;
+ cas de (1000000,1): ici le nombre de tour est de 999999;
  ```
- PS C:\Users\Lenovo> clang++ c2-exo18_main.cpp -o main
-PS C:\Users\Lenovo> ./main                           
+PS C:\Users\Lenovo> clang++ c2-exo18_main.cpp -o main 
+PS C:\Users\Lenovo> ./main                            
 entrer deux nombre : 
 1000000
 1
 PGCD : 1
+tours : 999999
 ```
 resultat de du second code soit l'algorithme d'euclide:
 
-  $ cas de(1071, 462): ici le nombre de tour est de  7
+  $ cas de(1071, 462): ici le nombre de tour est de  3
   ```
-  PS C:\Users\Lenovo> clang++ c2-exo18_main2.cpp -o main2
-PS C:\Users\Lenovo> ./main2                            
+ PS C:\Users\Lenovo> clang++ c2-exo18_main2.cpp -o main 
+PS C:\Users\Lenovo> ./main                             
 entrer deux entiers : 
 1071
 462
 PGCD 21
+tours : 3
 PS C:\Users\Lenovo> 
 ```
 $ cas de (1000000, 1):  ici le nombre de tour est de 1 tours
