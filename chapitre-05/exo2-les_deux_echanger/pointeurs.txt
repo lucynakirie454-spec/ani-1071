@@ -1,0 +1,22 @@
+Sortie :
+```
+Somme : 56
+Maximum : 19
+Tableau avant inversion : 1 2 3 4 5
+Tableau apres inversion : 5 4 3 2 1
+Longueur de bonjour : 7
+strlen de bonjour : 7
+Longueur de Yaounde : 8
+strlen de Yaounde : 8
+```
+
+Yaoundé :
+```
+La fonction longueur rend 8 pour la chaîne "Yaoundé".
+ Ce nombre représente les octets en UTF-8 et non le nombre de lettres. Le caractère é occupe deux octets en UTF-8, alors que chaque autre lettre de Yaoundé occupe un octet. Le mot contient donc 7 lettres, mais 8 octets.
+```
+Pourquoi pas const :
+```
+La fonction inverser modifie directement les valeurs du tableau. Un pointeur const int* interdit de modifier les valeurs pointées. Elle doit donc recevoir
+ un int* afin de pouvoir échanger les éléments du tableau.
+ ```
