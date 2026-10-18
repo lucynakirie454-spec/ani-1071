@@ -1,0 +1,14 @@
+Prédictions :
+```
+5 9;
+9 9 ;
+9 1 ;
+```
+Obtenu :
+```
+PS C:\Users\Lenovo> clang++ -std=c++17 -Wall signes.cpp -o programme     
+PS C:\Users\Lenovo> ./programme                                     
+5 9
+9 9
+9 1
+PS C:\Users\Lenovo> 
