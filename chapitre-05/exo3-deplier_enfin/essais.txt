@@ -1,0 +1,30 @@
+resultat de la compilation:
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra deplier.cpp              
+PS C:\Users\Lenovo> ./programme                      
+Entiers avant : x = 1, y = 2
+Apres pointeurs : x = 2, y = 1
+Apres references : x = 1, y = 2
+Doubles avant : a = 3.5, b = 7.2
+Doubles apres : a = 7.2, b = 3.5
+Caracteres avant : c = A, d = B
+Caracteres apres : c = B, d = A
+PS C:\Users\Lenovo> 
+```
+deplier :
+i=0 largeur=40 -> x=0 y=0
+i=39 largeur=40 -> x=39 y=0
+i=85 largeur=40 -> x=5 y=2
+
+minMax :
+{12, 7, 19, 3, 15} -> min=3 max=19
+
+diviser :
+17 5 -> quotient=3 reste=2
+42 8 -> quotient=5 reste=2
+
+Par zéro :
+valeur rendue=0
+avant : quotient=999 reste=888
+apres : quotient=999 reste=888
+```
