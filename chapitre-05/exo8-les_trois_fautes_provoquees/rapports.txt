@@ -1,0 +1,19 @@
+Fuite :
+```
+sans outil : le programme s'exécute normalement et affiche des nombres.
+avec outil : LeakSanitizer: detected memory leaks
+```
+Pendant :
+```
+sans outil : le programme affiche une valeur imprévisible.
+avec outil : ERROR: AddressSanitizer: heap-use-after-free
+```
+Double :
+```
+sans outil : le programme s'arrête brutalement.
+avec outil : ERROR: AddressSanitizer: attempting double-free
+
+La pire :
+La double destruction me paraît la plus dangereuse car 
+elle provoque souvent un arrêt immédiat du programme. L'outil la détecte clairement.
+```
