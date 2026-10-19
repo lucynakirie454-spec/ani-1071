@@ -1,0 +1,26 @@
+a :
+*a = 5;*error: assignment of read-only loc*tion '* a'
+
+a = &y;
+acceptée
+
+b :
+*b = 5;
+acceptée
+
+b = &y;
+error* assignment of read-only variable *b'
+
+c :
+*c*= 5;
+error: assignment of read-onl* location '*(const int*)c*
+
+**= &y;
+error:*assignment of read-only variable '*'
+
+Règle :
+Quand const est placé a*ant l*étoile (const int*), la variable*désignée est constante. On peut*déplacer le pointeur, mais on*ne peut pas modifier la valeur poi*tée.
+
+Quand const est placé après *'étoile (int* const), le pointeur *st constant. On peut modifier la v*leur pointée, mais on ne peut pas *aire pointer le pointeur ailleurs.*
+Quand les deux*const sont présents (const int* co*st), ni la valeur pointée ni le po*nteur ne peuvent être modifiés.
+``*
