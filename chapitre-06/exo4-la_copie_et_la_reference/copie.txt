@@ -1,0 +1,29 @@
+Prévu :
+```
+Départ : (3,4)
+
+Après bougerCopie : (3,4)
+
+Après bougerRef : (4,4)
+
+Après longueurRef : (4,4)
+```
+
+
+Obtenu :
+```
+Départ : (3,4)
+
+Après bougerCopie : (3,4)
+
+Après bougerRef : (4,4)
+
+Après longueurRef : (4,4)
+
+```
+Message :
+```
+error: assignment of member 'Vec2::x' in read-only object
+
+(si la ligne p.x = 0; est décommentée dans longueurRef)
+```
