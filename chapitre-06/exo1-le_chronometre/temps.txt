@@ -1,0 +1,30 @@
+-oo:
+j'ai compile et execute le programme trois fois avec -oo. les durees obtenus sont:
+
+*essai1:
+```
+0,000400000secondes
+```
+
+*essai 2: 
+```
+0,000300000secondesw.
+*essai3:
+```
+0,000400000secondes.
+```
+la duree moyenne est de 0,000366667secondes.
+
+UN PRINTF:
+```
+Durees des cinq printf :
+1 : 0.000020000 seconde
+2 : 0.000015000 seconde
+3 : 0.000018000 seconde
+4 : 0.000016000 seconde
+5 : 0.000017000 seconde
+```
+le plus cher:
+```
+ dans ces exemple, la boucle compilee avec -o0 prends plus de temps que celle compilee avec -o2.
+ l'optimisation ici nous a permis de redeuire le temps d'execution.
