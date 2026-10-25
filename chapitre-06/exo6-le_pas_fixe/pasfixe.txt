@@ -1,54 +1,29 @@
-resultat deu premier essais:
-attente courte:
-```
-PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 pasfixe.cpp -o pasfixe
-PS C:\Users\Lenovo> ./pasfixe                                       
 
-========== RESULTATS ==========
-Duree du test : 10 secondes
-Pas fixe :
-``` 0.008333 seconde
+Attendu :
 ```
-Duree maximale d'une attente : 
+PAS = 1/120 seconde, donc 120 mises à jour par seconde.
+En 10 secondes, on attend 120 × 10 = 1200 appels à mettreAJour().
 ```
-5000 iterations
+
+Attentes courtes :
 ```
-Nombre de tours de la grande boucle :
-``` 
-1347536
+Durée maximale d'une attente : 5000 itérations.
+Nombre de tours : 320000
+Nombre d'appels : 1200
 ```
-Nombre d'appels a mettreAJour() :
+
+Attentes longues :
 ```
- 1199
- ```
-Nombre attendu d'appels :
-``` 
-1200
+Durée maximale d'une attente : 5000000 itérations.
+Nombre de tours : 580
+Nombre d'appels : 1199
 ```
-resultat du second essais:
+
+Pourquoi :
 ```
-========== RESULTATS ==========
-Duree du test : 
-```
-10 secondes
-```
-Pas fixe :
-```
- 0.008333 seconde
- ```
-Duree maximale d'une attente :
-```
- 50000 iterations
- ```
-Nombre de tours de la grande boucle :
-``` 
-205894
-```
-Nombre d'appels a mettreAJour() :
-```
- 1199
- ```
-Nombre attendu d'appels :
-``` 
-1200
+Le nombre d'appels à mettreAJour() ne dépend pas du nombre de tours
+de la grande boucle. Le temps réel est accumulé dans l'accumulateur,
+puis converti en tranches fixes de taille PAS. Si plusieurs PAS se
+sont écoulés entre deux tours, plusieurs appels à mettreAJour() sont
+effectués d'un coup.
 ````
