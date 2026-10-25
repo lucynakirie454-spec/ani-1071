@@ -1,0 +1,27 @@
+
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 saut.cpp -o saut
+PS C:\Users\Lenovo> .\saut
+```
+ voici les rendu:
+                                                  
+v0 :
+```
+7.67203
+```
+1/120 :
+```
+2.96808
+```
+ 1/30: 
+ ```
+ 2.99616
+ ```
+ mon pas : 
+ ```
+ 1/1000 (hauteur max : 2.99616)
+ ```
+l'ecart vient : 
+```
+de la simulation numerique( discretisation par euler semi-implication), l'accumulation des ereurs sur les pas de temps dt empeche d'atteindre exactement 3m. 
+```
