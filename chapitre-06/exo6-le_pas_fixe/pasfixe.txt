@@ -1,0 +1,54 @@
+resultat deu premier essais:
+attente courte:
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 pasfixe.cpp -o pasfixe
+PS C:\Users\Lenovo> ./pasfixe                                       
+
+========== RESULTATS ==========
+Duree du test : 10 secondes
+Pas fixe :
+``` 0.008333 seconde
+```
+Duree maximale d'une attente : 
+```
+5000 iterations
+```
+Nombre de tours de la grande boucle :
+``` 
+1347536
+```
+Nombre d'appels a mettreAJour() :
+```
+ 1199
+ ```
+Nombre attendu d'appels :
+``` 
+1200
+```
+resultat du second essais:
+```
+========== RESULTATS ==========
+Duree du test : 
+```
+10 secondes
+```
+Pas fixe :
+```
+ 0.008333 seconde
+ ```
+Duree maximale d'une attente :
+```
+ 50000 iterations
+ ```
+Nombre de tours de la grande boucle :
+``` 
+205894
+```
+Nombre d'appels a mettreAJour() :
+```
+ 1199
+ ```
+Nombre attendu d'appels :
+``` 
+1200
+````
