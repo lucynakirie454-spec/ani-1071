@@ -1,0 +1,32 @@
+Sortie :
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 liste.cpp -o liste                                                                                          
+PS C:\Users\Lenovo> ./liste    
+Liste initiale : 10 20 30 40 50
+Compter : 5
+Contient 30 : 1
+Contient 99 : 0
+Apres ajouterEnTete : 5 10 20 30 40 50
+Retirer tete (5) : 10 20 30 40 50
+Retirer milieu (30) : 10 20 40 50
+Retirer absent (999) : 10 20 40 50
+Liste inversee : 50 40 20 10
+Vivants avant liberer : 4
+Vivants apres liberer : 0
+```
+
+Vivants :
+```
+Avant liberer : 4
+Apres liberer : 0
+```
+
+Par valeur :
+error: field 'suivant' has incomplete type 'Noeud'
+
+Pourquoi :
+```
+Le compilateur refuse de déclarer un membre "Noeud suivant;" dans la structure Noeud car chaque Noeud contiendrait un autre Noeud complet,
+ qui contiendrait lui-même un autre Noeud complet, et ainsi de suite à l'infini. Le compilateur ne peut donc pas calculer la taille de la structure.
+
+```
