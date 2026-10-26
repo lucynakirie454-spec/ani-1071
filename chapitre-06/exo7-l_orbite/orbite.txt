@@ -1,0 +1,62 @@
+
+Pas choisi :500 pas
+dt = 0.1
+Durée d'un tour = environ 628.3
+
+Distances :
+`` 0  100.000050  99.999950
+  500  100.028137  99.975988
+ 1000  100.073812  99.957916
+ 1500  100.150295  99.950167
+ 2000  100.263197  99.954642
+ 2500  100.409170  99.970243
+ 3000  100.576797  99.993142
+ 3500  100.749462  100.017728
+ 4000  100.909419  100.037982
+ 4500  101.042036  100.048954
+ 5000  101.139208  100.047963
+ 5500  101.201193  100.035251
+ 6000  101.236496  100.013924
+ 6500  101.259862  99.989196
+ 7000  101.288803  99.967121
+ 7500  101.339481  99.953110
+ 8000  101.422868  99.950601
+ 8500  101.542153  99.960210
+ 9000  101.692027  99.979579
+ 9500  101.860006  100.003957
+ ```
+
+Pas dix fois plus petit :
+Explicite :  100.007377
+Semi-implicite :99.995793;
+
+Dessin :
+```
+Orbites:
+
+   ###                            ###   
+   ##                              ##   
+  ##                                ##  
+  ##                                ##  
+  #                                  #  
+ ##                                  #  
+ ##                                  ## 
+ ##                                  ## 
+ #                                    # 
+ #                                    # 
+ #                                    # 
+ #                                    # 
+ ##                                  ## 
+ ##                                  ## 
+ ##                                  #  
+  #                                  #  
+  ##                                ##  
+  ##                                ##  
+   ##                              ##   
+    #                              ##  
+    ```
+
+Laquelle tient :
+La méthode d'Euler semi-implicite garde une orbite proche du cercle de rayon 100.
+La méthode d'Euler explicite gagne progressivement de l'énergie et son orbite s'éloigne lentement du cercle. Les relevés montrent que sa distance à l'origine augmente davantage, tandis que la méthode semi-implicite reste proche du rayon initial. Avec un pas dix fois plus petit, 
+les deux méthodes deviennent plus précises, mais la méthode semi-implicite reste la plus stable.
