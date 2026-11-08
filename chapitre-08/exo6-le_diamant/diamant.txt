@@ -1,0 +1,57 @@
+Message :
+```
+
+error: non-static member 'position' found in multiple base-class subobjects of type 'Entite':
+struct Ennemi -> Mobile -> Entite
+struct Ennemi -> Visible -> Entite
+
+note: member found by ambiguous name lookup
+```
+Tailles :
+```
+
+Sans héritage virtuel :
+Entite = 16 octets
+Mobile = 32 octets
+Visible = 24 octets
+Ennemi = 56 octets
+
+Dans cette version, Ennemi contient deux sous-objets Entite distincts.
+Chaque sous-objet possède sa propre position, ce qui duplique les données.
+```
+
+Avec héritage virtuel :
+```
+Entite = 16 octets
+Mobile = 40 octets
+Visible = 32 octets
+Ennemi = 56 octets
+
+Dans cette version, il n'y a plus qu'un seul sous-objet Entite partagé.
+L'héritage virtuel ajoute des informations internes permettant de retrouver
+la base virtuelle commune.
+```
+
+Deux positions :
+
+Sans héritage virtuel :
+```
+Après e.Mobile::position.x = 3.0, la référence Mobile& voit x = 3.0 alors
+que la référence Visible& accède à une autre position. Les deux références
+pointent donc vers deux sous-objets Entite différents.
+```
+
+Avec héritage virtuel :
+```
+Après e.position.x = 3.0, la référence Mobile& voit x = 3.0 et la référence
+Visible& voit également x = 3.0. Les deux références accèdent à la même
+position partagée.
+```
+
+Pourquoi jamais :
+```
+
+Le diamant crée des ambiguïtés lors de l'accès aux membres hérités.
+L'héritage virtuel résout le problème mais ajoute du coût mémoire et de la complexité.
+La composition est généralement plus simple, plus claire et plus facile à maintenir.
+```
