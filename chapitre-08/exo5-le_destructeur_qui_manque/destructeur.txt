@@ -1,0 +1,54 @@
+Avec virtual :
+```
+
+Par Ennemi*
+~Fantome 1000
+~Trace
+~Ennemi
+```
+Par Fantome*
+```
+~Fantome 1000
+~Trace
+~ennemi
+```
+
+La destruction est complète dans les deux cas.
+
+Sans virtual :
+```
+
+Par Ennemi*
+~Ennemi
+
+Par Fantome*
+~Fantome 1000
+~Trace
+~Ennemi
+```
+
+La destruction via Ennemi* n'appelle plus le destructeur de Fantome.
+```
+Avertissement :
+```
+
+warning:
+```
+ deleting object of polymorphic class type 'Ennemi' which has non-virtual destructor might cause undefined behavior
+
+Le message   indique que la suppression d'un objet polymorphique à travers 
+ un pointeur vers la classe de base sans destructeur virtuel est dangereuse.
+Pourquoi :
+```
+
+Quand le destructeur d'Ennemi est virtuel, delete e utilise le type réel de l'objet.
+ Le destructeur de Fantome est exécuté, puis les membres de Fantome sont détruits.
+  On voit donc apparaître ~Fantome, puis ~Trace, puis ~Ennemi.
+
+
+Quand le destructeur d'Ennemi n'est plus virtuel, delete e passe uniquement par la classe de base.
+ Le destructeur de Fantome n'est jamais appelé. Le membre Trace n'est jamais détruit non plus.
+  Le vecteur de mille entiers appartenant à Fantome n'est pas correctement libéré par le destructeur de Fantome.
+
+Le mot-clé virtual sur le destructeur de la classe de base décide si la destruction suit ou non le type réel de l'objet.
+```
