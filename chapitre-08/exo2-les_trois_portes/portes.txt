@@ -1,0 +1,24 @@
+Tableau :
+```
+ Dans Derivee, publique — compile ; protegee — compile ;
+ . privee — refusé:
+ ```
+ PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 portes.cpp -o portes
+portes.cpp:26:23: error: 'privee' is a private member of 'Base'
+   26 |          std::cout << privee << '\n'; 
+      |                       ^
+portes.cpp:11:9: note: declared private here
+   11 |     int privee;
+      |         ^
+1 error generated.
+``` 
+ Depuis main avec un objet Derivee, publique — compile ; protegee — refusé ; privee — refusé.
+```
+Messages : 
+```
+Pour privee dans Derivee, GCC signale : `error: ‘int Base::privee’ is private within this context`,
+ puis `note: declared private here`. Pour protegee depuis main, GCC signale : `error: ‘int Base::protegee’ is protected within this context`, puis `note: declared protected here`. Pour privee depuis main, GCC signale : `error: ‘int Base::privee’ is private within this context`, puis `note: declared private here`.
+
+Fonction libre : La fonction `void soigner(Base& b)` qui écrit dans `b.protegee` est refusée : GCC signale `error: ‘int Base::protegee’ is protected within this context`, puis `note: declared protected here`. Une fonction libre n'est ni une méthode de Base ni une méthode d'une classe dérivée ;
+ recevoir une référence vers Base ne lui donne pas accès à ses membres protected.
+ ```
