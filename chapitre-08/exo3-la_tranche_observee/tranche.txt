@@ -1,0 +1,21 @@
+Sorties :
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 tranche.cpp -o tranche
+PS C:\Users\Lenovo> ./tranche
+entite
+ennemi
+ennemi
+8
+16
+```
+Pourquoi :
+```
+La fonction f reçoit un objet Entite par valeur. 
+Quand on lui passe un Ennemi, seule la partie Entite est copiée. Elle reçoit donc un objet Entite et non plus un Ennemi.
+
+La partie spécifique à Ennemi, notamment le membre degats, est perdue lors de la copie.
+ C'est le phénomène appelé object slicing (tranche d'objet).
+
+Les fonctions g et h reçoivent respectivement une référence et un pointeur vers l'objet d'origine.
+ Elles conservent donc le type réel Ennemi et affichent correctement "ennemi".
+ ```
