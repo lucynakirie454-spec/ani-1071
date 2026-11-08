@@ -1,0 +1,67 @@
+Systèmes :
+```
+
+Pendant les cinq premiers pas, systemePhysique traite 60 entités et
+systemeRendu traite 100 entités.
+
+Les 40 décors possèdent Transform et Sprite seulement. Ils sont donc
+rendus mais ne participent pas à la physique.
+
+Les 40 balles possèdent Transform, Corps et Sprite. Elles sont traitées
+par les deux systèmes.
+
+Les 20 ennemis possèdent Transform, Corps et Sprite. Ils sont également
+traités par les deux systèmes.
+```
+
+On obtient donc :
+```
+Physique = 40 + 20 = 60 entités.
+Rendu = 40 + 40 + 20 = 100 entités.
+
+Après destruction des entités 5, 10, 15, 20, 25, 30, 35, 40, 45 et 50,
+les drapeaux sont retirés. Cinq nouvelles entités sont ensuite créées.
+Le dernier pas affiche :
+
+Physique = 57
+Rendu = 90
+
+car plusieurs entités détruites possédaient les composants nécessaires
+aux deux systèmes, tandis que les nouvelles entités n'ont reçu aucun
+composant.
+```
+Numéros :
+```
+
+Les nouvelles entités reçoivent les numéros :
+```
+
+50 45 40 35 30
+```
+La free list fonctionne comme une pile (LIFO). Lors de la destruction,
+chaque numéro libéré est placé au début de la liste libre. Le dernier
+numéro détruit est donc le premier à être réutilisé. Comme 50 a été
+libéré en dernier, il est réattribué en premier, puis 45, 40, 35 et 30.
+```
+
+Image :
+```
+                                        
+                                                  
+                                        
+##### #### #### #### #### #### #### ####
+                                        
+                                        
+                                        
+                                        
+ **** **** *****************************
+                                        
+                                        
+                                        
+                                        
+                                        
+EEEEEEEEEEEEEEEEEEEE                    
+                                        
+                                        
+                                        
+           ```
