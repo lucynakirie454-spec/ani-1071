@@ -1,0 +1,18 @@
+famille.cpp: In function ‘int main()’:
+```
+famille.cpp:56:12: error: ‘Vec2 Entite::position’ is protected within this context
+   56 |     ennemi.position.x = 10.0;
+      |            ^~~~~~~~
+famille.cpp:9:10: note: declared protected here
+    9 |     Vec2 position;
+
+      |          ^~~~~~~~
+   
+      ```
+      ```
+      Tailles : sizeof(Vec2) = 16 octets ; sizeof(const char*) = 8 octets ; sizeof(Entite) = 24 octets ; sizeof(Ennemi) = 32 octets ; sizeof(Joueur) = 32 octets (sur une plateforme 64 bits courante).
+
+Écarts : Vec2 contient deux double de 8 octets, soit 16 octets. Entite contient Vec2 (16 octets), puis le pointeur nom (8 octets), soit 24 octets. Ennemi contient la partie Entite (24 octets), puis int degats (4 octets) et 4 octets de bourrage, soit 32 octets. Joueur contient la partie Entite (24 octets), puis double vie (8 octets), soit 32 octets. Ces tailles peuvent dépendre de la plateforme.
+
+Message : GCC refuse ennemi.position.x = 10.0; depuis main parce que position est protected : main n’est ni une méthode d’Entite ni une méthode d’une classe dérivée. La méthode modifierPosition d’Ennemi passe parce qu’une classe dérivée peut accéder aux membres protected hérités.
+```
