@@ -1,0 +1,66 @@
+Avec virtual :
+
+Compilation :
+Aucun message d'erreur avec -Wall -Wextra.
+
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 virtuel.cpp -o virtuel
+PS C:\Users\Lenovo> ./virtuel
+10
+30
+20
+```
+Ce que cela montre :
+La fonction deplacer est virtuelle. Les appels sont donc résolus selon le type réel de l'objet pointé. Chaque objet utilise sa propre version de deplacer et son propre compteur est incrémenté.
+
+Sans virtual :
+
+Compilation :
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 virtuel.cpp -o virtuel
+virtuel.cpp:19:30: error: only virtual member functions can be marked 'override'
+   19 |     void deplacer(double dt) override {
+      |                              ^~~~~~~~
+virtuel.cpp:27:30: error: only virtual member functions can be marked 'override'
+   27 |     void deplacer(double dt) override {
+      |                              ^~~~~~~~
+2 errors generated.
+PS C:\Users\Lenovo> 
+```
+
+Modification nécessaire :
+```
+ici il fallut que je retire   override. pour que le programme compile.
+
+```
+
+Compteurs :
+```
+PS C:\Users\Lenovo> clang++ -Wall -Wextra -O0 virtuel.cpp -o virtuel
+PS C:\Users\Lenovo> ./virtuel                                       
+60
+0
+0
+PS C:\Users\Lenovo> 
+```
+Ce que cela montre :
+```
+Sans virtual, l'appel est résolu selon le type du pointeur (Ennemi*) et non selon le type réel de l'objet. 
+Les versions de Fantome et Robot ne sont plus appelées comme attendu.
+
+Faute de frappe :
+
+Avec override :
+```
+
+Ce que cela montre :
+override détecte immédiatement que la fonction ne redéfinit aucune méthode de la classe de base et empêche la compilation.
+```
+Sans override :
+Ce que cela montre :
+```
+La faute de frappe passe inaperçue. La fonction deplacr devient une nouvelle
+ fonction au lieu de redéfinir deplacer. Le programme compile mais le comportement 
+ n'est plus celui attendu. Les compteurs montrent que certains appels utilisent 
+la version de la classe de base au lieu de celle qui devait être redéfinie.
+```
