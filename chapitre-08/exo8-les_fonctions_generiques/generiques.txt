@@ -1,0 +1,68 @@
+Essais :
+```
+
+maximum(10, 25) = 25
+minimum(10, 25) = 10
+clamp(30, 0, 20) = 20
+echanger(int) : 25 10
+
+maximum(7.5, 2.3) = 7.5
+minimum(7.5, 2.3) = 2.3
+clamp(9.8, 0.0, 5.0) = 5
+echanger(double) : 2.3 7.5
+
+echanger(Vec2)
+u = (3, 4)
+v = (1, 2)
+
+trier(std::string)
+Yaounde
+Zoo
+abricot
+arbre
+zebre
+```
+
+Messages :
+```
+Refus 1 :
+
+maximum(3, 7.5);
+```
+error: no matching function for call to 'maximum'
+candidate template ignored: deduced conflicting types for parameter 'T' ('int' vs. 'double')
+
+Ce message désigne l'appel maximum(3, 7.5).
+```
+ Le compilateur ne peut pas choisir un type unique T car 3 est un int et 7.5 est un double.
+
+Refus 2 :
+```
+
+maximum(u, v);
+
+error: invalid operands to binary expression ('Vec2' and 'Vec2')
+return (a > b) ? a : b;
+```
+
+Ce message désigne l'appel maximum(u, v). La fonction maximum utilise l'opérateur > 
+mais la structure Vec2 ne définit pas cet opérateur, 
+donc le compilateur ne sait pas comparer deux Vec2.
+```
+
+Tri des chaînes :
+```
+
+Ordre obtenu :
+```
+Yaounde
+Zoo
+abricot
+arbre
+zebre
+
+Cet ordre est obtenu parce que std::string compare les caractères suivant leurs codes ASCII. 
+Les lettres majuscules ('Y' et 'Z') ont un code inférieur aux lettres minuscules ('a' et 'z'),
+ elles apparaissent donc avant les mots commençant par une minuscule. 
+Ensuite les chaînes sont classées par ordre lexicographique.
+```
