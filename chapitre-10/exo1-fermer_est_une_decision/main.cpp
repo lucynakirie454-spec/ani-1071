@@ -1,53 +1,47 @@
 #include <iostream>
 #include <string>
+#include <set>
 
 int main() {
     int n;
     std::cin >> n;
 
-    bool modifie = false;
-    bool fermee = false;
-
-    int demandes = 0;
-    int ignores = 0;
+    std::set<std::string> touches;
+    int oublis = 0;
 
     for (int i = 0; i < n; i++) {
         std::string evenement;
         std::cin >> evenement;
 
-        if (fermee) {
-            ignores++;
+        if (evenement == "BAS") {
+            std::string touche;
+            std::cin >> touche;
+            touches.insert(touche);
         }
-        else if (evenement == "MODIF") {
-            modifie = true;
-            std::cout << "modifie" << std::endl;
+        else if (evenement == "HAUT") {
+            std::string touche;
+            std::cin >> touche;
+            touches.erase(touche);
         }
-        else if (evenement == "SAUVE") {
-            modifie = false;
-            std::cout << "enregistre" << std::endl;
-        }
-        else if (evenement == "FERMETURE") {
-            demandes++;
+        else if (evenement == "QUESTION") {
+            std::string touche;
+            std::cin >> touche;
 
-            if (modifie) {
-                std::cout << "fermeture refusee" << std::endl;
+            if (touches.count(touche)) {
+                std::cout << "oui" << std::endl;
             }
             else {
-                std::cout << "fermeture acceptee" << std::endl;
-                fermee = true;
+                std::cout << "non" << std::endl;
             }
+        }
+        else if (evenement == "FOCUS_PERDU") {
+            oublis += touches.size();
+            touches.clear();
         }
     }
 
-    std::cout << "DEMANDES " << demandes << std::endl;
-    std::cout << "IGNORES " << ignores << std::endl;
-
-    if (fermee) {
-        std::cout << "FERMEE oui" << std::endl;
-    }
-    else {
-        std::cout << "FERMEE non" << std::endl;
-    }
+    std::cout << "ENFONCEES " << touches.size() << std::endl;
+    std::cout << "OUBLIS " << oublis << std::endl;
 
     return 0;
 }
