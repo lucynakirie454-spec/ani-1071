@@ -1,47 +1,37 @@
 #include <iostream>
-#include <string>
-#include <set>
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::set<std::string> touches;
-    int oublis = 0;
+    bool precedent = false;
+    int appuis = 0;
+    int relaches = 0;
 
-    for (int i = 0; i < n; i++) {
-        std::string evenement;
-        std::cin >> evenement;
+    for (int i = 1; i <= n; i++) {
+        int etat;
+        std::cin >> etat;
 
-        if (evenement == "BAS") {
-            std::string touche;
-            std::cin >> touche;
-            touches.insert(touche);
+        if (!precedent && etat) {
+            std::cout << i << " APPUYE" << std::endl;
+            appuis++;
         }
-        else if (evenement == "HAUT") {
-            std::string touche;
-            std::cin >> touche;
-            touches.erase(touche);
+        else if (precedent && etat) {
+            std::cout << i << " MAINTENU" << std::endl;
         }
-        else if (evenement == "QUESTION") {
-            std::string touche;
-            std::cin >> touche;
+        else if (precedent && !etat) {
+            std::cout << i << " RELACHE" << std::endl;
+            relaches++;
+        }
+        else {
+            std::cout << i << " RIEN" << std::endl;
+        }
 
-            if (touches.count(touche)) {
-                std::cout << "oui" << std::endl;
-            }
-            else {
-                std::cout << "non" << std::endl;
-            }
-        }
-        else if (evenement == "FOCUS_PERDU") {
-            oublis += touches.size();
-            touches.clear();
-        }
+        precedent = etat;
     }
 
-    std::cout << "ENFONCEES " << touches.size() << std::endl;
-    std::cout << "OUBLIS " << oublis << std::endl;
+    std::cout << "APPUIS " << appuis << std::endl;
+    std::cout << "RELACHES " << relaches << std::endl;
 
     return 0;
 }
