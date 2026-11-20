@@ -1,56 +1,61 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
-int niveauValeur(const string& niveau)
-{
-    if (niveau == "DEBUG") return 0;
-    if (niveau == "INFO")  return 1;
-    if (niveau == "WARN")  return 2;
-    if (niveau == "ERROR") return 3;
-    return -1;
-}
-
 int main()
 {
-    string seuil;
-    int nbMessages;
+    string format;
+    getline(cin, format);
 
-    cin >> seuil;
-    cin >> nbMessages;
+    int n;
+    cin >> n;
 
-    int seuilValeur = niveauValeur(seuil);
+    vector<int> arguments(n);
 
-    int affiches = 0;
-    int filtres = 0;
-
-    for (int i = 0; i < nbMessages; ++i)
+    for (int i = 0; i < n; ++i)
     {
-        string niveau;
-        string message;
+        cin >> arguments[i];
+    }
 
-        cin >> niveau >> message;
+    string resultat;
+    int remplaces = 0;
+    int manquants = 0;
 
-        int valeurMessage = niveauValeur(niveau);
-
-        if (seuilValeur == -1 || valeurMessage == -1)
+    for (size_t i = 0; i < format.size(); ++i)
+    {
+        if (i + 2 < format.size() &&
+            format[i] == '{' &&
+            format[i + 1] >= '0' &&
+            format[i + 1] <= '9' &&
+            format[i + 2] == '}')
         {
-            ++filtres;
+            int index = format[i + 1] - '0';
+
+            if (index < n)
+            {
+                resultat += to_string(arguments[index]);
+                ++remplaces;
+            }
+            else
+            {
+                resultat += '{';
+                resultat += format[i + 1];
+                resultat += '}';
+                ++manquants;
+            }
+
+            i += 2;
         }
-        else if (valeurMessage >= seuilValeur)
-        {
-            cout << niveau << ' ' << message << '\n';
-            ++affiches;
-        }
-        else
-        {
-            ++filtres;
+        else{
+            resultat += format[i];
         }
     }
 
-    cout << "AFFICHES " << affiches << '\n';
-    cout << "FILTRES " << filtres << '\n';
+       cout << resultat << '\n';
+        cout << "REMPLACES " << remplaces << '\n';
+    cout << "MANQUANTS " << manquants << '\n';
 
     return 0;
 }
