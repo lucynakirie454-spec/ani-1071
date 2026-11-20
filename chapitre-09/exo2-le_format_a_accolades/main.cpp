@@ -1,61 +1,64 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
-int main()
+struct Fichier
 {
-    string format;
-    getline(cin, format);
+    string nom;
+    bool garde;
+    vector<string> inclus;
+};
 
-    int n;
-    cin >> n;
+unordered_map<string, Fichier> fichiers;
+unordered_map<string, int> compteSans;
+unordered_map<string, int> compteAvec;
+unordered_set<string> dejaInclus;
 
-    vector<int> arguments(n);
-
-    for (int i = 0; i < n; ++i)
+void calculSans(const string& nom)
+{
+    for (const string& inc : fichiers[nom].inclus)
     {
-        cin >> arguments[i];
+        compteSans[inc]++;
+        calculSans(inc);
     }
+}
 
-    string resultat;
-    int remplaces = 0;
-    int manquants = 0;
-
-    for (size_t i = 0; i < format.size(); ++i)
+void calculAvec(const string& nom)
+{
+    for (const string& inc : fichiers[nom].inclus)
     {
-        if (i + 2 < format.size() &&
-            format[i] == '{' &&
-            format[i + 1] >= '0' &&
-            format[i + 1] <= '9' &&
-            format[i + 2] == '}')
-        {
-            int index = format[i + 1] - '0';
+        bool inserer = true;
 
-            if (index < n)
+        if (fichiers[inc].garde)
+        {
+            if (dejaInclus.count(inc))
             {
-                resultat += to_string(arguments[index]);
-                ++remplaces;
+                inserer = false;
             }
             else
             {
-                resultat += '{';
-                resultat += format[i + 1];
-                resultat += '}';
-                ++manquants;
+                dejaInclus.insert(inc);
             }
-
-            i += 2;
         }
-        else{
-            resultat += format[i];
+
+        if (inserer)
+        {
+            compteAvec[inc]++;
+            calculAvec(inc);
         }
     }
-
-       cout << resultat << '\n';
-        cout << "REMPLACES " << remplaces << '\n';
-    cout << "MANQUANTS " << manquants << '\n';
-
-    return 0;
 }
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    vector<string> ordre;
+
+    for (int i = 0; i < n; ++i)
+    {
